@@ -261,49 +261,121 @@ mod tests {
 
     #[test]
     fn test_physical_to_gpio() {
-        assert_eq!(PhysicalPin(3).into(), GpioPin(2));
-        assert_eq!(PhysicalPin(5).into(), GpioPin(3));
-        assert_eq!(PhysicalPin(37).into(), GpioPin(26));
-        assert_eq!(PhysicalPin(40).into(), GpioPin(21));
+        assert_eq!(
+            <WiringPiPin as Into<GpioPin>>::into(WiringPiPin(3)),
+            GpioPin(22)
+        );
+        assert_eq!(
+            <WiringPiPin as Into<GpioPin>>::into(WiringPiPin(5)),
+            GpioPin(24)
+        );
+        assert_eq!(
+            <WiringPiPin as Into<GpioPin>>::into(WiringPiPin(7)),
+            GpioPin(4)
+        );
+        assert_eq!(
+            <WiringPiPin as Into<GpioPin>>::into(WiringPiPin(8)),
+            GpioPin(2)
+        );
     }
 
     #[test]
     fn test_physical_to_wiringpi() {
-        assert_eq!(PhysicalPin(3).into(), WiringPiPin(8));
-        assert_eq!(PhysicalPin(5).into(), WiringPiPin(9));
-        assert_eq!(PhysicalPin(37).into(), WiringPiPin(25));
-        assert_eq!(PhysicalPin(40).into(), WiringPiPin(29));
+        assert_eq!(
+            <PhysicalPin as Into<WiringPiPin>>::into(PhysicalPin(3)),
+            WiringPiPin(8)
+        );
+        assert_eq!(
+            <PhysicalPin as Into<WiringPiPin>>::into(PhysicalPin(5)),
+            WiringPiPin(9)
+        );
+        assert_eq!(
+            <PhysicalPin as Into<WiringPiPin>>::into(PhysicalPin(7)),
+            WiringPiPin(7)
+        );
+        assert_eq!(
+            <PhysicalPin as Into<WiringPiPin>>::into(PhysicalPin(8)),
+            WiringPiPin(15)
+        );
     }
 
     #[test]
     fn test_gpio_to_physical() {
-        assert_eq!(GpioPin(2).into(), PhysicalPin(3));
-        assert_eq!(GpioPin(3).into(), PhysicalPin(5));
-        assert_eq!(GpioPin(26).into(), PhysicalPin(37));
-        assert_eq!(GpioPin(21).into(), PhysicalPin(40));
+        assert_eq!(
+            <GpioPin as Into<PhysicalPin>>::into(GpioPin(2)),
+            PhysicalPin(3)
+        );
+        assert_eq!(
+            <GpioPin as Into<PhysicalPin>>::into(GpioPin(3)),
+            PhysicalPin(5)
+        );
+        assert_eq!(
+            <GpioPin as Into<PhysicalPin>>::into(GpioPin(4)),
+            PhysicalPin(7)
+        );
+        assert_eq!(
+            <GpioPin as Into<PhysicalPin>>::into(GpioPin(14)),
+            PhysicalPin(8)
+        );
     }
 
     #[test]
     fn test_gpio_to_wiringpi() {
-        assert_eq!(GpioPin(2).into(), WiringPiPin(8));
-        assert_eq!(GpioPin(3).into(), WiringPiPin(9));
-        assert_eq!(GpioPin(26).into(), WiringPiPin(25));
-        assert_eq!(GpioPin(21).into(), WiringPiPin(29));
+        assert_eq!(
+            <GpioPin as Into<WiringPiPin>>::into(GpioPin(2)),
+            WiringPiPin(8)
+        );
+        assert_eq!(
+            <GpioPin as Into<WiringPiPin>>::into(GpioPin(3)),
+            WiringPiPin(9)
+        );
+        assert_eq!(
+            <GpioPin as Into<WiringPiPin>>::into(GpioPin(4)),
+            WiringPiPin(7)
+        );
+        assert_eq!(
+            <GpioPin as Into<WiringPiPin>>::into(GpioPin(14)),
+            WiringPiPin(15)
+        );
     }
 
     #[test]
     fn test_wiringpi_to_physical() {
-        assert_eq!(WiringPiPin(8).into(), PhysicalPin(3));
-        assert_eq!(WiringPiPin(9).into(), PhysicalPin(5));
-        assert_eq!(WiringPiPin(25).into(), PhysicalPin(37));
-        assert_eq!(WiringPiPin(29).into(), PhysicalPin(40));
+        assert_eq!(
+            <WiringPiPin as Into<PhysicalPin>>::into(WiringPiPin(8)),
+            PhysicalPin(3)
+        );
+        assert_eq!(
+            <WiringPiPin as Into<PhysicalPin>>::into(WiringPiPin(9)),
+            PhysicalPin(5)
+        );
+        assert_eq!(
+            <WiringPiPin as Into<PhysicalPin>>::into(WiringPiPin(7)),
+            PhysicalPin(7)
+        );
+        assert_eq!(
+            <WiringPiPin as Into<PhysicalPin>>::into(WiringPiPin(15)),
+            PhysicalPin(8)
+        );
     }
 
     #[test]
     fn test_wiringpi_to_gpio() {
-        assert_eq!(WiringPiPin(8).into(), GpioPin(2));
-        assert_eq!(WiringPiPin(9).into(), GpioPin(3));
-        assert_eq!(WiringPiPin(25).into(), GpioPin(26));
-        assert_eq!(WiringPiPin(29).into(), GpioPin(21));
+        assert_eq!(
+            <WiringPiPin as Into<GpioPin>>::into(WiringPiPin(8)),
+            GpioPin(2)
+        );
+        assert_eq!(
+            <WiringPiPin as Into<GpioPin>>::into(WiringPiPin(9)),
+            GpioPin(3)
+        );
+        assert_eq!(
+            <WiringPiPin as Into<GpioPin>>::into(WiringPiPin(7)),
+            GpioPin(4)
+        );
+        assert_eq!(
+            <WiringPiPin as Into<GpioPin>>::into(WiringPiPin(15)),
+            GpioPin(14)
+        );
     }
 }
