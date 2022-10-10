@@ -2,6 +2,11 @@
 name = "pi-pinout"
 version = "0.1.0"
 edition = "2021"
+description = "A crate to translate between GPIO pin label types"
+authors = ["Forest Anderson <forestkzanderson@gmail.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/AngelOnFira/pi-pinout"
+documentation = "https://docs.rs/pi-pinout"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
