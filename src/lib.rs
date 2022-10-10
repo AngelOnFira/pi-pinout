@@ -1,13 +1,13 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Deserialize, Serialize)]
-pub struct PhysicalPin(u8);
+pub struct PhysicalPin(pub u8);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Deserialize, Serialize)]
-pub struct GpioPin(u8);
+pub struct GpioPin(pub u8);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Deserialize, Serialize)]
-pub struct WiringPiPin(u8);
+pub struct WiringPiPin(pub u8);
 
 // Pin Translation Table
 //
